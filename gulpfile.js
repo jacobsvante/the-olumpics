@@ -82,7 +82,7 @@ gulp.task('html', ['html-validation', 'clean-html'], function () {
   return gulp.src('gui/app/*.html')
         .pipe(livereload(lrserver))
         .pipe(size())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('gui/dist'));
 });
 
 
@@ -133,6 +133,6 @@ gulp.task('watch', ['build'], function () {
 
 
 gulp.task('serve', serve({
-  root: 'dist',
+  root: './gui/dist',
   port: SERVER_PORT,
 }));
