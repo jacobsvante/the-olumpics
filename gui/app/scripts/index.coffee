@@ -3,11 +3,12 @@ $ = require('jquery')
 io = require('socket.io-client')
 queryString = require('query-string')
 fs = require('fs')
-waitingTmpl = fs.readFileSync(__dirname + '/templates/wait.html')
+startTmpl = fs.readFileSync(__dirname + '/templates/start.html')
+waitTmpl = fs.readFileSync(__dirname + '/templates/wait.html')
 chooseCharacterTmpl = fs.readFileSync(__dirname + '/templates/choose-character.html')
 
 $app = $('#app')
-$app.html(_.template(waitingTmpl))
+$app.html(_.template(startTmpl))
 
 gameId = parseInt(queryString.parse(window.location.search).game, 10)
 userId = null
