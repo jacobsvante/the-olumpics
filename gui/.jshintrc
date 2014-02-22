@@ -1,0 +1,20 @@
+{
+    "node": true,
+    "browser": true,
+    "esnext": true,
+    "bitwise": true,
+    "camelcase": false, // Disable because some third-party libs use underscore
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": false, // Throws weird warnings when set to a non-false value.
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": true,
+    "strict": true,
+    "trailing": true,
+    "smarttabs": true
+}

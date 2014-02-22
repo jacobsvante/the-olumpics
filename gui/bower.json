@@ -1,0 +1,22 @@
+{
+  "name": "gui-remake",
+  "version": "0.1.0",
+  "authors": [
+    "The Olumpics Team"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#~3.1.1",
+    "bootstrap": "~3.1.1",
+    "modernizr": "~2.7.1",
+    "thorax": "~2.3.2",
+    "lodash": "~2.4.1"
+  }
+}
