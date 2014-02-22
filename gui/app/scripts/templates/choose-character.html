@@ -1,11 +1,18 @@
-<ul class="inline-list row">
-  <li class="col-sm-4 character-card">
-    Char 1
-  </li>
-  <li class="col-sm-4 character-card">
-    Char 2
-  </li>
-  <li class="col-sm-4 character-card">
-    Char 3
-  </li>
-</ul>
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h1><small>The</small> O<strong class="text-yellow">lump</strong>ics</h1>
+    <hr>
+    <div class="row">
+    <% _.each(fighters, function(fighter) { %>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <img class="img-responsive margin-centering" src="http://www.maskeradkammaren.se/1233-1807-large/militar-maskeraddrakt.jpg">
+      <h2 class="font-size-base"><%- fighter.PERNR %></h2>
+      <p class="font-size-small">Logic <strong><%- fighter.logic %></strong></p>
+      <p class="font-size-small">Intelligence <strong><%- fighter.intelligence %></strong></p>
+      <p class="font-size-small">Shape <strong><%- fighter.shape %></strong></p>
+      <p class="font-size-small">Technology <strong><%- fighter.tech %></strong></p>
+    </div>
+    <% }); %>
+    </div>
+  </div>
+</div>
