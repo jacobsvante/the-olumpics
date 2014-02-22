@@ -1,0 +1,15 @@
+
+.text-yellow        { color: rgb(200,200,0); }
+
+.font-size-small    { font-size: $font-size-small; }
+.font-size-base     { font-size: $font-size-base; }
+.font-size-large    { font-size: $font-size-large; }
+
+@keyframes spin {
+  from  { transform: rotate(0deg); }
+  to    { transform: rotate(360deg); }
+}
+.spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
