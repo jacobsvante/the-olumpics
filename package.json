@@ -2,13 +2,20 @@
   "name": "the-olumpics",
   "version": "0.0.1",
   "description": "Awesome lumpen game.",
-  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jmagnusson/the-olumpics.git"
+  },
+  "browser": {
+    "modernizr": "./gui/app/bower_components/modernizr/modernizr.js",
+    "lodash": "./gui/app/bower_components/lodash/dist/lodash.js"
+  },
+  "browserify-shim": "./shim.js",
+  "browserify": {
+    "transform": []
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -17,6 +24,35 @@
   },
   "dependencies": {
     "express": "~3.4.8",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "mysql": "~2.1.0",
+    "jquery": "~2.1.0",
+    "socket.io-client": "~0.9.16"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.0",
+    "gulp-util": "~2.2.9",
+    "tiny-lr": "~0.0.5",
+    "gulp-livereload": "~0.1.1",
+    "gulp-autoprefixer": "~0.0.6",
+    "gulp-jshint": "~1.3.4",
+    "gulp-imagemin": "~0.1.4",
+    "gulp-clean": "~0.2.4",
+    "gulp-uglify": "~0.2.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-cache": "~0.1.1",
+    "gulp-size": "~0.1.2",
+    "gulp-coffeelint": "~0.2.2",
+    "gulp-if": "0.0.5",
+    "vinyl-source-stream": "~0.1.1",
+    "watchify": "~0.6.1",
+    "browserify": "~3.30.1",
+    "browserify-shim": "~3.2.2",
+    "brfs": "~0.2.1",
+    "uglifyify": "~1.2.2",
+    "gulp-sass": "~0.7.1",
+    "gulp-serve": "~0.1.1",
+    "gulp-w3cjs": "~0.1.2",
+    "coffeeify": "~0.6.0"
   }
 }

@@ -1,20 +1,22 @@
 var app = require('express')();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
-server.listen(8080);
+var path = require('path');
+var mysql = require('mysql');
 
 var gameData = {};
 var gameidCounter = 0;
 var useridCounter = 0;
 
-app.get('/', function (req, res) {
-    'use strict';
-    //Serve application
-    res.cookie('userid', useridCounter++);
-    res.sendfile(__dirname + '/gui/app/index.html');
-    console.log('Lumps b4 bumps');
+//Database connection credentials
+var dbConnection = mysql.createConnection({
+    host    : 'localhost',
+    port    : 8889,
+    user    : 'root',
+    password: 'root'
 });
+
+server.listen(8080);
 
 app.get('/game/challenge/:gameid', function(req, res) {
 	//Here we send the user to a specific game.
@@ -45,8 +47,9 @@ io.sockets.on('connection', function(socket) {
 			}
 		})
 		.on('fighter.get_suggestions', function() {
-			fighters = getRandomFighters(3);
-			socket.emit('fighter.suggestions', fighters);
+			fighters = getRandomFighters(3, function(fighters) {
+				socket.emit('fighter.suggestions', fighters);
+			});
 		})
 		.on('fighter.selected', function(fighter) {
 			gameData[gameid][userid].fighter = fighter;
@@ -67,5 +70,28 @@ io.sockets.on('connection', function(socket) {
 				});
 			}
 		});
-;
 });
+
+//Connect to db
+function queryDB(query, callback) {
+    'use strict';
+    dbConnection.connect();
+
+    dbConnection.query(query, function(err, rows, fields) {
+        if (err) throw err;
+
+        //console.log('The solution is: ', rows[0]);
+        callback(rows);
+    });
+
+    dbConnection.end();
+}
+
+function getRandomFighters(num, callback) {
+	//Get 3 random fighters from DB.
+	queryDB('SELECT PERNR, INST FROM insark.test WHERE PERNR LIKE "70%" ORDER BY RAND() LIMIT '+num, function(data) {
+	//queryDB('SELECT * FROM insark.test LIMIT 1', function(data){
+	    'use strict';
+	    callback(data);
+	});
+}
