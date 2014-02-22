@@ -1,5 +1,6 @@
 console.log('hey')
 _ = require('lodash')
+$ = require('jquery')
 io = require('socket.io-client')
 fs = require('fs')
 chooseCharacterTmpl = fs.readFileSync(__dirname + '/templates/choose-character.html')
