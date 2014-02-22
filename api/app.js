@@ -41,6 +41,9 @@ io.sockets.on('connection', function(socket) {
 		})
 		.on('game.join', function(joinGameid) {
 			gameid = joinGameid;
+			if ( ! gameData[gameid]) {
+				gameData[gameid] = {};
+			}
 			gameData[gameid][userid] = {};
 
 			if (_.keys(gameData[gameid]).length == 2) {
