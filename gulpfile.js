@@ -16,8 +16,8 @@ var gulp = require('gulp'),
     // TODO: gulp-ruby-sass is much slower. Find a way to support
     //       bootstrap-sass with libsass. It gives this weird error:
     //       https://github.com/sindresorhus/grunt-sass/issues/33
-    rubysass = require('gulp-ruby-sass'),
-    // libsass = require('gulp-sass'),
+    // rubysass = require('gulp-ruby-sass'),
+    libsass = require('gulp-sass'),
     // compass = require('gulp-compass'),
     clean = require('gulp-clean'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -42,10 +42,10 @@ if (!gutil.env.debug) {
 gulp.task('styles', ['clean-styles'], function () {
   return gulp.src('./gui/app/styles/main.scss')
              // TODO: Source maps
-             .pipe(rubysass({sourcemap: true,
-                             compass: true}))
-             // .pipe(libsass({errLogToConsole: true,
-             //                sourceComments: 'map'}))
+             // .pipe(rubysass({sourcemap: true,
+             //                 compass: true}))
+             .pipe(libsass({errLogToConsole: true,
+                            sourceComments: 'map'}))
              // autoprefixer sets browser prefixes based on caniuse.com
              // statistics.
              // TODO: I suspect that running autoprefixer after the sourcemaps

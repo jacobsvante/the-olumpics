@@ -2,5 +2,5 @@
 
 module.exports = {
   'modernizr': 'Modernizr',
-  'thorax': {exports: 'Thorax', depends: {'jquery': '$', 'handlebars': 'Handlebars', 'backbone': 'Backbone', 'lodash': '_'}}
+  'lodash': '_'
 };

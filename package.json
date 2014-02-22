@@ -11,7 +11,8 @@
   },
   "browser": {
     "modernizr": "./gui/app/bower_components/modernizr/modernizr.js",
-    "thorax": "./gui/app/bower_components/thorax/thorax.js"
+    "thorax": "./gui/app/bower_components/thorax/thorax.js",
+    "lodash": "./gui/app/bower_components/lodash/dist/lodash.js"
   },
   "browserify-shim": "./shim.js",
   "browserify": {
@@ -26,10 +27,10 @@
     "express": "~3.4.8",
     "socket.io": "~0.9.16",
     "jquery": "~2.1.0",
-    "lodash-node": "~2.4.1",
     "handlebars": "~1.3.0",
     "backbone": "~1.1.1",
-    "socket.io-client": "~0.9.16"
+    "socket.io-client": "~0.9.16",
+    "gulp-sass": "~0.7.1"
   },
   "devDependencies": {
     "gulp": "~3.5.0",
